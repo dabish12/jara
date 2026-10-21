@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DDEO-SRATMS | Dembi Dollo Education Office</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================ LOGIN ============================ -->
+<section id="loginScreen" class="login" aria-label="Sign in">
+  <div class="login-art" aria-hidden="true">
+    <svg viewBox="0 0 640 520" class="scene" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="320" cy="270" r="230" fill="rgba(255,255,255,.05)"/>
+      <circle cx="320" cy="270" r="150" fill="rgba(255,255,255,.06)"/>
+      <!-- certificate / transcript sheet -->
+      <g transform="translate(60 120) rotate(-8)">
+        <rect width="190" height="250" rx="8" fill="#fff"/>
+        <rect x="16" y="18" width="158" height="14" rx="3" fill="#12335c"/>
+        <g fill="#c9d4e4"><rect x="16" y="50" width="158" height="9"/><rect x="16" y="68" width="158" height="9"/><rect x="16" y="86" width="158" height="9"/><rect x="16" y="104" width="158" height="9"/><rect x="16" y="122" width="158" height="9"/><rect x="16" y="140" width="158" height="9"/></g>
+        <circle cx="140" cy="205" r="22" fill="none" stroke="#c6392f" stroke-width="3"/>
+        <path d="M122 205 l12 12 22 -26" fill="none" stroke="#1f7a4d" stroke-width="5" stroke-linecap="round"/>
+        <rect x="16" y="212" width="70" height="3" fill="#12335c"/>
+      </g>
+      <!-- graduation cap -->
+      <g>
+        <path d="M262 232 V292 C262 326 438 326 438 292 V232 L350 272 Z" fill="#12335c"/>
+        <polygon points="350,150 498,212 350,274 202,212" fill="#0b1e36"/>
+        <path d="M460 226 V298" stroke="#e3a817" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="460" cy="306" r="9" fill="#e3a817"/>
+        <circle cx="350" cy="212" r="7" fill="#e3a817"/>
+      </g>
+      <!-- open book -->
+      <g>
+        <path d="M350 442 C292 414 198 410 128 428 L128 508 C198 490 292 494 350 522 Z" fill="#fff"/>
+        <path d="M350 442 C408 414 502 410 572 428 L572 508 C502 490 408 494 350 522 Z" fill="#eef3fa"/>
+        <path d="M350 442 V522" stroke="#c4cfdf" stroke-width="3"/>
+        <g stroke="#9db0cc" stroke-width="3" stroke-linecap="round" fill="none"><path d="M160 456 C210 446 270 450 320 468"/><path d="M160 480 C210 470 270 474 320 492"/><path d="M380 468 C430 450 490 446 540 456"/></g>
+      </g>
+      <!-- bar chart -->
+      <g transform="translate(500 320)"><rect width="20" height="40" y="50" fill="#1f7a4d"/><rect x="28" width="20" height="90" y="0" fill="#e3a817"/><rect x="56" width="20" height="62" y="28" fill="#c6392f"/></g>
+    </svg>
+    <div class="login-caption">
+      <h1>Dembi Dollo Education Office</h1>
+      <p>Student Roster and Transcript Management System</p>
+    </div>
+    <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+  <div class="login-panel">
+    <form id="loginForm" class="login-card" autocomplete="off" novalidate>
+      <div class="login-badge" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="34" height="34"><polygon points="24,8 44,17 24,26 4,17" fill="#fff"/><path d="M12 22 V32 C12 38 36 38 36 32 V22 L24 28 Z" fill="#cfe0f7"/><rect x="40" y="18" width="3" height="14" fill="#e3a817"/></svg>
+      </div>
+      <h2>Sign in</h2>
+      <p class="muted">Education Office admin, school admin or teacher.</p>
+      <label for="loginUser">Username</label>
+      <input id="loginUser" type="text" autocomplete="username" required>
+      <label for="loginPass">Password</label>
+      <div class="pw-wrap">
+        <input id="loginPass" type="password" autocomplete="current-password" required>
+        <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">Show</button>
+      </div>
+      <div id="loginError" class="form-error" role="alert" hidden></div>
+      <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      <div class="public-links"><button type="button" class="link-btn" data-action="pub-result">Students: view my result</button><button type="button" class="link-btn" data-action="pub-register">Students: register for the new year</button></div>
+      <p class="login-foot">DDEO-SRATMS</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============================ APP ============================ -->
+<div id="app" class="app" hidden>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      <div>
+        <div class="brand-title">DDEO-SRATMS</div>
+        <div class="brand-sub" id="brandSub">Dembi Dollo Education Office</div>
+      </div>
+    </div>
+    <nav class="nav" id="nav" aria-label="Main"></nav>
+    <button class="nav-item nav-logout" data-action="logout">Sign out</button>
+  </aside>
+  <div class="main-wrap">
+    <header class="topbar">
+      <button class="menu-btn" data-action="menu" aria-label="Open menu">Menu</button>
+      <div class="topbar-school"><strong id="topTitle">Dembi Dollo Education Office</strong><span id="topSub" class="muted"></span></div>
+    </header>
+    <main class="main" id="main"></main>
+  </div>
+</div>
+
+<input type="file" id="studentFile" accept=".xlsx,.xls,.csv" hidden>
+<input type="file" id="restoreFile" accept=".json,application/json" hidden>
+<div id="modalRoot"></div>
+<div id="toastRoot" aria-live="polite"></div>
+<div id="busy" class="busy" hidden><div class="spinner"></div><span id="busyText">Working</span></div>
+<div id="printArea"></div>
+<div id="exportStage" aria-hidden="true"></div>
+
+<!-- Libraries (CDN): Excel and PDF. CSV import/export and Print are used if they cannot load. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
